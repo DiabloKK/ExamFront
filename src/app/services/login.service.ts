@@ -1,11 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import baseurl from './helper';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
+
+  public isLoggedInn = new EventEmitter<boolean>();
+
   constructor(private http: HttpClient) {}
 
   // current user: which is loggedin
@@ -38,6 +42,7 @@ export class LoginService {
   public logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    this.isLoggedInn.emit(false);
     return true;
   }
 
@@ -49,6 +54,7 @@ export class LoginService {
   // set userDetail
   public setUser(user: any) {
     localStorage.setItem('user', JSON.stringify(user));
+    this.isLoggedInn.emit(true);
   }
 
   // getUser

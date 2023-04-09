@@ -9,8 +9,8 @@
   </a>
   <span>Examportal</span>
   <span class="example-spacer"></span>
-  <a *ngIf="!login.isLoggedIn()" [routerLink]="'/login'" mat-button>Login</a>
-  <a *ngIf="!login.isLoggedIn()" [routerLink]="'/signup'" mat-button>Register</a>
-  <a (click)="logout()" *ngIf="login.isLoggedIn()" mat-button>Logout</a>
-  <a *ngIf="login.isLoggedIn()" mat-button style="margin-left: 50px;">{{ login.getUser().username }}</a>
+  <a *ngIf="!isLoggedIn" [routerLink]="'/login'" mat-button>Login</a>
+  <a *ngIf="!isLoggedIn" [routerLink]="'/signup'" mat-button>Register</a>
+  <a (click)="logout()" *ngIf="isLoggedIn" mat-button>Logout</a>
+  <a *ngIf="isLoggedIn && user" mat-button class="ml20">{{ user.username }}</a>
 </mat-toolbar>

@@ -28,7 +28,7 @@ export class SignupComponent implements OnInit{
   }
 
   formSubmit() {
-    console.log(this.user);
+    // console.log(this.user);
     if(this.user.username=='' || this.user.username==null) {
       this.snack.open("Username is required !!", "", {
         duration: 3000,
@@ -47,8 +47,7 @@ export class SignupComponent implements OnInit{
         Swal.fire('Successfully', 'User id is ' + data.id, 'success');
       },
       (error) => {
-        console.log(error);
-        this.snack.open("something went wrong", '', {
+        this.snack.open(error["error"]["msg"], '', {
           duration: 3000
         });
       }

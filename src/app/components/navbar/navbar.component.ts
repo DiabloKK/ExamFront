@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+
+interface User {
+  username: string;
+  // other properties if any
+}
 
 @Component({
   selector: 'app-navbar',
@@ -7,13 +14,22 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(public login: LoginService) {}
+  isLoggedIn = false;
+  user: User | null = null;
 
-  ngOnInit(): void {}
+  constructor(public login: LoginService, private router: Router) {}
+
+  ngOnInit(): void {
+
+    this.login.isLoggedInn.subscribe((result) => {
+      this.isLoggedIn = result;
+      this.user = this.login.getUser();
+    });
+
+  }
 
   logout() {
     this.login.logout();
-    window.location.reload();
+    this.router.navigate(['/']);
   }
-
 }

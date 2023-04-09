@@ -1,1 +1,13 @@
-<h1>Welcome to ADMIN Dashboard</h1>
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <app-sidebar (adminClick)="sideBarClick($event)"></app-sidebar>
+            </div>
+            <div class="col-md-10" [ngSwitch]="menuType">
+                <app-welcome *ngSwitchCase="'home'"></app-welcome>
+                <app-profile *ngSwitchCase="'profile'"></app-profile>
+            </div>
+        </div>
+    </div>
+</div>
