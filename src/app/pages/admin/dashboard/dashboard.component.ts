@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,15 +7,16 @@ import { Component, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-    
-  menuType = "home";
+  menuType = '';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
-
-  sideBarClick(event: any) {
-    this.menuType = event;
+  ngOnInit(): void {
+    this.menuType = this.router.url.substring(7);
   }
 
- }
+  // sideBarClick(event: any) {
+  //   this.menuType = event;
+  //   console.log(this.menuType);
+  // }
+}

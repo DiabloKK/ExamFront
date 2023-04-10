@@ -1,4 +1,4 @@
-<mat-card *ngIf="user" style="padding: 15px">
+<mat-card *ngIf="user">
   <h1>Your Profile Details</h1>
   <!-- {{ user | json }} -->
   <mat-card-content>
@@ -42,7 +42,7 @@
       </div>
     </div>
   </mat-card-content>
-  <mat-card-actions style="margin: 0 auto">
+  <mat-card-actions class="text-center">
     <button mat-raised-button color="primary">UPDATE</button>
     <button mat-raised-button color="accent" class="ml10">SHARE</button>
   </mat-card-actions>

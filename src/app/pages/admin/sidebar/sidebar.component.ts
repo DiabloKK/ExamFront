@@ -13,12 +13,12 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  homeClick() {
-    this.adminClick.emit("home");
-  }
+  // homeClick() {
+  //   this.adminClick.emit("home");
+  // }
 
-  profileClick() {
-    this.adminClick.emit("profile");
-  }
+  // profileClick() {
+  //   this.adminClick.emit("profile");
+  // }
 
 }

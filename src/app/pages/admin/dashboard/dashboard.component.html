@@ -1,13 +1,16 @@
 <div class="bootstrap-wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <app-sidebar (adminClick)="sideBarClick($event)"></app-sidebar>
-            </div>
-            <div class="col-md-10" [ngSwitch]="menuType">
-                <app-welcome *ngSwitchCase="'home'"></app-welcome>
-                <app-profile *ngSwitchCase="'profile'"></app-profile>
-            </div>
-        </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <!-- <app-sidebar (adminClick)="sideBarClick($event)"></app-sidebar> -->
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class="col-md-10" [ngSwitch]="menuType">
+        <app-welcome *ngSwitchCase="''"></app-welcome>
+        <app-profile *ngSwitchCase="'profile'"></app-profile>
+        <app-view-categories *ngSwitchCase="'categories'"></app-view-categories>
+        <app-add-category *ngSwitchCase="'add-category'"></app-add-category>
+      </div>
     </div>
+  </div>
 </div>

@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { User } from 'src/app/data-type';
 
-interface User {
-  username: string;
-  // other properties if any
-}
 
 @Component({
   selector: 'app-navbar',
