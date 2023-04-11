@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.menuType = this.router.url.substring(7);
+    this.menuType = this.router.url.substring(7).split("/")[0];
   }
 
   // sideBarClick(event: any) {

@@ -18,10 +18,10 @@ export class ViewCategoriesComponent implements OnInit {
     this._category.categories().subscribe(
       (data: any) => {
         this.categories = data;
-        console.log(this.categories);
+        // console.log(this.categories);
       },
       (error) => {
-        console.log(error);
+        // console.log(error);
         Swal.fire('Error !!', 'Error in loading data', 'error');
       }
     );

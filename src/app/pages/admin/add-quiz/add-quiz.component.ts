@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Category } from 'src/app/data-type';
+import { Category, Quiz } from 'src/app/data-type';
 import { CategoryService } from 'src/app/services/category.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
@@ -13,14 +13,14 @@ import Swal from 'sweetalert2';
 export class AddQuizComponent implements OnInit {
   categories: Category[] = [];
 
-  quizData = {
+  quizData: Quiz = {
     title: '',
     description: '',
     maxMarks: '',
     numberOfQuestions: '',
     active: true,
     category: {
-      cid: '',
+      cid: 0,
     },
   };
 
@@ -35,10 +35,10 @@ export class AddQuizComponent implements OnInit {
       (data: any) => {
         // categories load
         this.categories = data;
-        console.log(this.categories);
+        // console.log(this.categories);
       },
       (error) => {
-        console.log(error);
+        // console.log(error);
         Swal.fire('Error !!', 'error in loading data from server', 'error');
       }
     );
@@ -65,13 +65,13 @@ export class AddQuizComponent implements OnInit {
           numberOfQuestions: '',
           active: true,
           category: {
-            cid: '',
+            cid: 0,
           },
         };
       },
       (error) => {
         Swal.fire('Error !!', 'Error while adding quiz', 'error');
-        console.log(error);
+        // console.log(error);
       }
     );
   }

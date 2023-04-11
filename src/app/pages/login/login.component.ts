@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   formSubmit() {
-    console.log('login btn clicked');
+    // console.log('login btn clicked');
 
     if (
       this.loginData.username.trim() == '' ||
@@ -45,15 +45,14 @@ export class LoginComponent implements OnInit {
     // request to server to generate token
     this.login.generateToken(this.loginData).subscribe(
       (data: any) => {
-        console.log('success');
-        console.log(data);
+        // console.log(data);
 
         //login...
         this.login.loginUser(data.token);
 
         this.login.getCurrentUser().subscribe((user: any) => {
           this.login.setUser(user);
-          console.log(user);
+          // console.log(user);
           //redirect ...ADMIN: admin-dashboard
           //redirect ...NORMAL: normal-dashboard
           if (this.login.getUserRole() == 'ADMIN') {
@@ -70,8 +69,7 @@ export class LoginComponent implements OnInit {
         });
       },
       (error) => {
-        console.log('Error !');
-        console.log(error);
+        // console.log(error);
         this.snack.open('Invalid Details !! Try again', '', {
           duration: 3000,
         });

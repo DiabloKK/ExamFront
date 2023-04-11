@@ -38,7 +38,7 @@ export class AddCategoryComponent implements OnInit {
         Swal.fire('Success !!', 'Category is added successfully', 'success');
       },
       (error) => {
-        console.log(error);
+        // console.log(error);
         Swal.fire('Error !!', 'Server error !!', 'success');
       }
     );
