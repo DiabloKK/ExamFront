@@ -49,6 +49,18 @@ const routes: Routes = [
     canActivate: [AdminGuard],
   },
   {
+    path: 'admin/quizzes',
+    component: DashboardComponent,
+    pathMatch: 'full',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/add-quiz',
+    component: DashboardComponent,
+    pathMatch: 'full',
+    canActivate: [AdminGuard],
+  },
+  {
     path: 'user-dashboard',
     component: UserDashboardComponent,
     pathMatch: 'full',

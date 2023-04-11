@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class AddCategoryComponent implements OnInit {
   category = {
-    id: 0,
+    cid: 0,
     title: '',
     description: '',
   };
@@ -32,7 +32,7 @@ export class AddCategoryComponent implements OnInit {
 
     this._category.addCategory(this.category).subscribe(
       (data: any) => {
-        this.category.id = 0;
+        this.category.cid = 0;
         this.category.title = '';
         this.category.description = '';
         Swal.fire('Success !!', 'Category is added successfully', 'success');
