@@ -21,6 +21,7 @@ export interface Quiz {
 }
 
 export interface Question {
+  quesId: number;
   quiz: {
     qId: number;
   };
