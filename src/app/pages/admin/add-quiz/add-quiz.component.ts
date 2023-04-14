@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Category, Quiz } from 'src/app/data-type';
+import { Category, Quiz, defaultCategory, defaultQuiz } from 'src/app/data-type';
 import { CategoryService } from 'src/app/services/category.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
@@ -13,18 +13,7 @@ import Swal from 'sweetalert2';
 export class AddQuizComponent implements OnInit {
   categories: Category[] = [];
 
-  quizData: Quiz = {
-    title: '',
-    description: '',
-    maxMarks: '',
-    numberOfQuestions: '',
-    active: true,
-    category: {
-      cid: 0,
-      title: '',
-      description: '',
-    },
-  };
+  quizData = defaultQuiz;
 
   constructor(
     private _cat: CategoryService,
@@ -60,18 +49,7 @@ export class AddQuizComponent implements OnInit {
     this._quiz.addQuiz(this.quizData).subscribe(
       (data) => {
         Swal.fire('Success', 'quiz is added', 'success');
-        this.quizData = {
-          title: '',
-          description: '',
-          maxMarks: '',
-          numberOfQuestions: '',
-          active: true,
-          category: {
-            cid: 0,
-            title: '',
-            description: '',
-          },
-        };
+        this.quizData = defaultQuiz;
       },
       (error) => {
         Swal.fire('Error !!', 'Error while adding quiz', 'error');

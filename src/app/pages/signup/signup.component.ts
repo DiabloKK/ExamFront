@@ -2,6 +2,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
+import { defaultUser } from 'src/app/data-type';
 
 @Component({
   selector: 'app-signup',
@@ -10,15 +11,8 @@ import Swal from 'sweetalert2'
 })
 export class SignupComponent implements OnInit{
 
-  public user = {
-    username: '',
-    password: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: ''
-  };
-
+  public user = defaultUser;
+  
   constructor(private userService: UserService, private snack: MatSnackBar) {
 
   }

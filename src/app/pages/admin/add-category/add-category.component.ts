@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { defaultCategory } from 'src/app/data-type';
 import { CategoryService } from 'src/app/services/category.service';
 import Swal from 'sweetalert2';
 
@@ -9,11 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./add-category.component.css'],
 })
 export class AddCategoryComponent implements OnInit {
-  category = {
-    cid: 0,
-    title: '',
-    description: '',
-  };
+  category = defaultCategory;
 
   constructor(
     private _category: CategoryService,
@@ -32,9 +29,7 @@ export class AddCategoryComponent implements OnInit {
 
     this._category.addCategory(this.category).subscribe(
       (data: any) => {
-        this.category.cid = 0;
-        this.category.title = '';
-        this.category.description = '';
+        this.category = defaultCategory;
         Swal.fire('Success !!', 'Category is added successfully', 'success');
       },
       (error) => {
