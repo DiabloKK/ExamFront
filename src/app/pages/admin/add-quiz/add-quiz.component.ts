@@ -21,6 +21,8 @@ export class AddQuizComponent implements OnInit {
     active: true,
     category: {
       cid: 0,
+      title: '',
+      description: '',
     },
   };
 
@@ -66,6 +68,8 @@ export class AddQuizComponent implements OnInit {
           active: true,
           category: {
             cid: 0,
+            title: '',
+            description: '',
           },
         };
       },

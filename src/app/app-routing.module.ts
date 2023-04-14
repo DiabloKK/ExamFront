@@ -7,6 +7,16 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
+import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 
 const routes: Routes = [
   {
@@ -27,62 +37,56 @@ const routes: Routes = [
   {
     path: 'admin',
     component: DashboardComponent,
-    pathMatch: 'full',
     canActivate: [AdminGuard],
-  },
-  {
-    path: 'admin/profile',
-    component: DashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard],
-  },
-  {
-    path: 'admin/categories',
-    component: DashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard],
-  },
-  {
-    path: 'admin/add-category',
-    component: DashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard],
-  },
-  {
-    path: 'admin/quizzes',
-    component: DashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard],
-  },
-  {
-    path: 'admin/add-quiz',
-    component: DashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard],
-  },
-  {
-    path: 'admin/quiz/:qid',
-    component: DashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard],
-  },
-  {
-    path: 'admin/view-questions/:qid/:title',
-    component: DashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard],
-  },
-  {
-    path: 'admin/add-question/:qid/:title',
-    component: DashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard],
+    children: [
+      {
+        path: '',
+        component: WelcomeComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+      },
+      {
+        path: 'categories',
+        component: ViewCategoriesComponent,
+      },
+      {
+        path: 'add-category',
+        component: AddCategoryComponent,
+      },
+      {
+        path: 'quizzes',
+        component: ViewQuizzesComponent,
+      },
+      {
+        path: 'add-quiz',
+        component: AddQuizComponent,
+      },
+      {
+        path: 'quiz/:qid',
+        component: UpdateQuizComponent,
+      },
+      {
+        path: 'view-questions/:qid/:title',
+        component: ViewQuizQuestionsComponent,
+      },
+      {
+        path: 'add-question/:qid/:title',
+        component: AddQuestionComponent,
+      },
+    ],
   },
   {
     path: 'user-dashboard',
     component: UserDashboardComponent,
-    pathMatch: 'full',
     canActivate: [NormalGuard],
+    children: [
+      {
+        path: ':catId',
+        component: LoadQuizComponent,
+      },
+    ],
   },
 ];
 

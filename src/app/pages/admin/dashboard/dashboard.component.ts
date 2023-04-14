@@ -7,16 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  menuType = '';
-
   constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    this.menuType = this.router.url.substring(7).split("/")[0];
-  }
+  ngOnInit(): void {}
 
-  // sideBarClick(event: any) {
-  //   this.menuType = event;
-  //   console.log(this.menuType);
-  // }
 }

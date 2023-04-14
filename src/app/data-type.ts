@@ -15,9 +15,7 @@ export interface Quiz {
   maxMarks: String;
   numberOfQuestions: String;
   active: boolean;
-  category: {
-    cid: number;
-  };
+  category: Category;
 }
 
 export interface Question {

@@ -2,19 +2,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-2">
-        <!-- <app-sidebar (adminClick)="sideBarClick($event)"></app-sidebar> -->
         <app-sidebar></app-sidebar>
       </div>
-      <div class="col-md-10" [ngSwitch]="menuType">
-        <app-welcome *ngSwitchCase="''"></app-welcome>
-        <app-profile *ngSwitchCase="'profile'"></app-profile>
-        <app-view-categories *ngSwitchCase="'categories'"></app-view-categories>
-        <app-add-category *ngSwitchCase="'add-category'"></app-add-category>
-        <app-view-quizzes *ngSwitchCase="'quizzes'"></app-view-quizzes>
-        <app-add-quiz *ngSwitchCase="'add-quiz'"></app-add-quiz>
-        <app-update-quiz *ngSwitchCase="'quiz'"></app-update-quiz>
-        <app-view-quiz-questions *ngSwitchCase="'view-questions'"></app-view-quiz-questions>
-        <app-add-question *ngSwitchCase="'add-question'"></app-add-question>
+      <div class="col-md-10">
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>
