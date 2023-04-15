@@ -49,6 +49,7 @@ export const defaultQuiz: Quiz = {
 };
 
 export interface Question {
+  givenAnswer: String;
   quesId: number;
   quiz: Quiz;
   content: string;
@@ -60,6 +61,7 @@ export interface Question {
 }
 
 export const defaultQuestion = {
+  givenAnswer: '',
   quesId: 0,
   quiz: defaultQuiz,
   content: '',
